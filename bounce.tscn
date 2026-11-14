@@ -2,14 +2,10 @@
 
 [ext_resource type="Script" uid="uid://noq5t8tr68t5" path="res://character_body_2d.gd" id="1_ug7ek"]
 [ext_resource type="Texture2D" uid="uid://cn03nqrhgm2ob" path="res://pixil-frame-0.png" id="2_bklnn"]
-[ext_resource type="Texture2D" uid="uid://boiktpeo1o75g" path="res://pixil-frame-0 (1).png" id="3_ug7ek"]
-[ext_resource type="Script" uid="uid://cc3t0c77vdsbk" path="res://sprite_2d.gd" id="4_7f2o3"]
+[ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="3_ug7ek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afka0"]
 size = Vector2(82, 170)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_afka0"]
-radius = 19.235384
 
 [node name="Node2D" type="Node2D" unique_id=859023814]
 
@@ -28,15 +24,35 @@ texture = ExtResource("2_bklnn")
 position = Vector2(12, 38)
 shape = SubResource("RectangleShape2D_afka0")
 
-[node name="PinkSlime" type="Area2D" parent="." unique_id=864140321 groups=["slime"]]
-position = Vector2(219, 597)
+[node name="PinkSlime" parent="." unique_id=289915431 instance=ExtResource("3_ug7ek")]
+position = Vector2(223, 558)
 
-[node name="Sprite2D" type="Sprite2D" parent="PinkSlime" unique_id=1789484653 groups=["slime"]]
-position = Vector2(0, 1)
-texture = ExtResource("3_ug7ek")
-script = ExtResource("4_7f2o3")
+[node name="PinkSlime2" parent="." unique_id=171741661 instance=ExtResource("3_ug7ek")]
+position = Vector2(613, 587)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PinkSlime" unique_id=324652132 groups=["slime"]]
-shape = SubResource("CircleShape2D_afka0")
+[node name="PinkSlime3" parent="." unique_id=861567898 instance=ExtResource("3_ug7ek")]
+position = Vector2(360, 491)
+
+[node name="PinkSlime4" parent="." unique_id=1629781711 instance=ExtResource("3_ug7ek")]
+position = Vector2(207, 232)
+
+[node name="PinkSlime5" parent="." unique_id=995859752 instance=ExtResource("3_ug7ek")]
+position = Vector2(630, 288)
+
+[node name="PinkSlime6" parent="." unique_id=2005720812 instance=ExtResource("3_ug7ek")]
+position = Vector2(771, 448)
+
+[node name="PinkSlime7" parent="." unique_id=2110225019 instance=ExtResource("3_ug7ek")]
+position = Vector2(881, 284)
+
+[node name="PinkSlime8" parent="." unique_id=2095422703 instance=ExtResource("3_ug7ek")]
+position = Vector2(379, 306)
+
+[node name="PinkSlime9" parent="." unique_id=1205216652 instance=ExtResource("3_ug7ek")]
+position = Vector2(541, 124)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1943388281]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1369873681]
 
 [connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickuparea_area_entered"]

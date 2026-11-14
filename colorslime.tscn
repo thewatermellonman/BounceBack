@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://hnycn531yv7k"]
+
+[ext_resource type="Texture2D" uid="uid://boiktpeo1o75g" path="res://pixil-frame-0 (1).png" id="1_jhhus"]
+[ext_resource type="Script" uid="uid://cc3t0c77vdsbk" path="res://sprite_2d.gd" id="2_univy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afka0"]
+radius = 19.235384
+
+[node name="PinkSlime" type="Area2D" unique_id=289915431 groups=["slime"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1967177457 groups=["slime"]]
+position = Vector2(0, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jhhus")
+script = ExtResource("2_univy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1551249350 groups=["slime"]]
+shape = SubResource("CircleShape2D_afka0")

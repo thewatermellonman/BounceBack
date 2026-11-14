@@ -5,7 +5,7 @@ var textures: Array[Texture2D] = [
 	preload("res://Slime Blue.png"),
 	preload("res://Slime Green.png"),
 	preload("res://Slime Yellow.png"),
-	preload("res://pixil-frame-0 (1).png"),
+	preload("res://pink slime.png"),
 	preload("res://Teal Slime.png")
 ]
 
