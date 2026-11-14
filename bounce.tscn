@@ -2,21 +2,41 @@
 
 [ext_resource type="Script" uid="uid://noq5t8tr68t5" path="res://character_body_2d.gd" id="1_ug7ek"]
 [ext_resource type="Texture2D" uid="uid://cn03nqrhgm2ob" path="res://pixil-frame-0.png" id="2_bklnn"]
+[ext_resource type="Texture2D" uid="uid://boiktpeo1o75g" path="res://pixil-frame-0 (1).png" id="3_ug7ek"]
+[ext_resource type="Script" uid="uid://cc3t0c77vdsbk" path="res://sprite_2d.gd" id="4_7f2o3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afka0"]
-size = Vector2(76, 156)
+size = Vector2(82, 170)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afka0"]
+radius = 19.235384
 
 [node name="Node2D" type="Node2D" unique_id=859023814]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=862969182]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=862969182]
 position = Vector2(63, 513)
 script = ExtResource("1_ug7ek")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=910534290]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=910534290]
 position = Vector2(1.5258789e-05, -7.6293945e-06)
 scale = Vector2(2.60152, 2.5365503)
 texture = ExtResource("2_bklnn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1478863358]
-position = Vector2(15, 31)
+[node name="PickupArea" type="Area2D" parent="Player" unique_id=1690137610]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PickupArea" unique_id=1478863358]
+position = Vector2(12, 38)
 shape = SubResource("RectangleShape2D_afka0")
+
+[node name="PinkSlime" type="Area2D" parent="." unique_id=864140321 groups=["slime"]]
+position = Vector2(219, 597)
+
+[node name="Sprite2D" type="Sprite2D" parent="PinkSlime" unique_id=1789484653 groups=["slime"]]
+position = Vector2(0, 1)
+texture = ExtResource("3_ug7ek")
+script = ExtResource("4_7f2o3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinkSlime" unique_id=324652132 groups=["slime"]]
+shape = SubResource("CircleShape2D_afka0")
+
+[connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickuparea_area_entered"]

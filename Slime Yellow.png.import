@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbh0t6hhoccxg"
-path="res://.godot/imported/mario.png-ebd39d186f7b83aa1f6fc17f243fd637.ctex"
+uid="uid://p683uqh6e1jb"
+path="res://.godot/imported/Slime Yellow.png-ae7d76a33a1b600dadd130fe06c1dff2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mario.png"
-dest_files=["res://.godot/imported/mario.png-ebd39d186f7b83aa1f6fc17f243fd637.ctex"]
+source_file="res://Slime Yellow.png"
+dest_files=["res://.godot/imported/Slime Yellow.png-ae7d76a33a1b600dadd130fe06c1dff2.ctex"]
 
 [params]
 

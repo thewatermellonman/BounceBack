@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://upm7a476cfr6"]
+
+[ext_resource type="Texture2D" uid="uid://boiktpeo1o75g" path="res://pixil-frame-0 (1).png" id="1_2d52u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afka0"]
+radius = 19.235384
+
+[node name="Slime" type="Area2D" unique_id=1766215136 groups=["slime"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1362914946]
+position = Vector2(0, 1)
+texture = ExtResource("1_2d52u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1892847161 groups=["slime"]]
+shape = SubResource("CircleShape2D_afka0")
