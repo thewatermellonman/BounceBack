@@ -33,8 +33,8 @@ size = Vector2(20, 839)
 [node name="Stage 2" type="Node" parent="." unique_id=1654231171]
 
 [node name="Background" type="Sprite2D" parent="Stage 2" unique_id=494303114]
-position = Vector2(573.5, 332)
-scale = Vector2(1.4412501, 1.1785713)
+position = Vector2(573.5, 439.99997)
+scale = Vector2(1.4412501, 1.5642855)
 texture = ExtResource("1_y6xg4")
 
 [node name="Tower" type="Sprite2D" parent="Stage 2" unique_id=112230669]
@@ -115,7 +115,7 @@ position = Vector2(864, 213)
 offset_left = -8.0
 offset_top = 575.0
 offset_right = 397.0
-offset_bottom = 816.0
+offset_bottom = 919.0
 texture = ExtResource("8_2slsw")
 patch_margin_top = 41
 axis_stretch_horizontal = 1

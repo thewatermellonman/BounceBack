@@ -51,7 +51,7 @@ func _on_pickuparea_area_entered(area):
 			Globalvars.stage += 1
 			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file("res://Stage 4.tscn")
-		elif Globalvars.slime == 33:
+		elif Globalvars.slime == 32:
 			Globalvars.stage += 1
 			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file("res://Stage 5.tscn")
@@ -63,7 +63,6 @@ func _on_pickup_area_area_entered(area: Area2D) -> void:
 			if get_tree(): await get_tree().process_frame
 			velocity.y = bounce_force * 2
 
-@onready var hit = $hit
 var health = 3
 signal health_two()
 signal health_one()

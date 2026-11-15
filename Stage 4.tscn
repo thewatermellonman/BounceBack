@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://trvl0wkwb3kw" path="res://Ground Corner.png" id="10_wa77m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gm7l"]
-size = Vector2(56, 121.90625)
+size = Vector2(56, 118.953125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fna2"]
 size = Vector2(82, 170)
@@ -21,7 +21,7 @@ size = Vector2(82, 170)
 size = Vector2(379, 83.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aph4m"]
-size = Vector2(1183, 88.5)
+size = Vector2(1183, 50.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuth"]
 size = Vector2(248.5, 90)
@@ -60,12 +60,12 @@ texture = ExtResource("3_8g1dh")
 [node name="Bouncepad" type="Area2D" parent="Stage 4" unique_id=283931883 groups=["bounce"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="Stage 4/Bouncepad" unique_id=1732006857 groups=["bounce"]]
-position = Vector2(60.000122, 575)
+position = Vector2(237.99998, 577.00006)
 scale = Vector2(0.24899994, 0.19649997)
 texture = ExtResource("4_kle1h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Bouncepad" unique_id=990909878]
-position = Vector2(62, 624)
+position = Vector2(235, 627)
 shape = SubResource("RectangleShape2D_1gm7l")
 
 [node name="Bouncepad2" type="Area2D" parent="Stage 4" unique_id=1495608484 groups=["bounce"]]
@@ -105,10 +105,7 @@ position = Vector2(771, 155)
 position = Vector2(1067, 576)
 
 [node name="PinkSlime3" parent="Stage 4" unique_id=1075040777 instance=ExtResource("7_u6grv")]
-position = Vector2(67, 271)
-
-[node name="PinkSlime4" parent="Stage 4" unique_id=2129692294 instance=ExtResource("7_u6grv")]
-position = Vector2(259, 269)
+position = Vector2(67, 583)
 
 [node name="PinkSlime6" parent="Stage 4" unique_id=2133617554 instance=ExtResource("7_u6grv")]
 position = Vector2(758, 586)
@@ -141,14 +138,14 @@ shape = SubResource("RectangleShape2D_suyve")
 offset_left = -8.0
 offset_top = 591.0
 offset_right = 1173.0
-offset_bottom = 688.0
+offset_bottom = 867.0
 texture = ExtResource("8_x1kl8")
 patch_margin_top = 41
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Ground2" unique_id=104145196]
-position = Vector2(593.5, 640)
+position = Vector2(593.5, 620.875)
 shape = SubResource("RectangleShape2D_aph4m")
 
 [node name="Ground3" type="StaticBody2D" parent="Stage 4" unique_id=1292298841]
