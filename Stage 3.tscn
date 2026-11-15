@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://cstqsdxq8ove5"]
+
+[ext_resource type="Texture2D" uid="uid://dy03txws1hglj" path="res://Background Sky.png" id="1_im8tp"]
+[ext_resource type="Texture2D" uid="uid://b6agwk6f2n4y3" path="res://Background Tower.png" id="2_0lp30"]
+[ext_resource type="Texture2D" uid="uid://bk7vs5sv5r655" path="res://Background Cluods.png" id="3_ykjhm"]
+[ext_resource type="Texture2D" uid="uid://cjqsey6s7t43a" path="res://Springy.png" id="4_tgotf"]
+[ext_resource type="Script" uid="uid://noq5t8tr68t5" path="res://character_body_2d.gd" id="5_176n1"]
+[ext_resource type="Texture2D" uid="uid://bsb1ohfsfwmj1" path="res://Princess True.png" id="6_3kv6j"]
+[ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="7_wihnt"]
+[ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="8_7mt2f"]
+[ext_resource type="Script" uid="uid://drni075lmb8fe" path="res://bottom.gd" id="9_im8tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75d07"]
+size = Vector2(56, 121.90625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_im8tp"]
+size = Vector2(82, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lp30"]
+size = Vector2(309.75, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykjhm"]
+size = Vector2(702, 88.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgotf"]
+size = Vector2(248.5, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_176n1"]
+size = Vector2(20, 839)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afka0"]
+size = Vector2(1418, 79)
+
+[node name="Node2D" type="Node2D" unique_id=806316155]
+
+[node name="Stage 3" type="Node" parent="." unique_id=2054827887]
+
+[node name="Background" type="Sprite2D" parent="Stage 3" unique_id=138043378]
+position = Vector2(573.5, 332)
+scale = Vector2(1.4412501, 1.1785713)
+texture = ExtResource("1_im8tp")
+
+[node name="Tower" type="Sprite2D" parent="Stage 3" unique_id=1901181476]
+position = Vector2(437.99997, 321)
+scale = Vector2(1.0375, 1.0535715)
+texture = ExtResource("2_0lp30")
+
+[node name="Clouds" type="Sprite2D" parent="Stage 3" unique_id=205042262]
+position = Vector2(132, 473)
+texture = ExtResource("3_ykjhm")
+
+[node name="Clouds2" type="Sprite2D" parent="Stage 3" unique_id=702971069]
+position = Vector2(790, 232)
+texture = ExtResource("3_ykjhm")
+
+[node name="Bouncepad" type="Area2D" parent="Stage 3" unique_id=173767817 groups=["bounce"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage 3/Bouncepad" unique_id=786612935 groups=["bounce"]]
+position = Vector2(252.00003, 558)
+scale = Vector2(0.24899994, 0.19649997)
+texture = ExtResource("4_tgotf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Bouncepad" unique_id=516000564]
+position = Vector2(251, 606)
+shape = SubResource("RectangleShape2D_75d07")
+
+[node name="Player" type="CharacterBody2D" parent="Stage 3" unique_id=1185053329]
+position = Vector2(71, 455)
+script = ExtResource("5_176n1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage 3/Player" unique_id=554370631]
+position = Vector2(9, 21.000008)
+scale = Vector2(0.51037997, 0.53538764)
+texture = ExtResource("6_3kv6j")
+
+[node name="PickupArea" type="Area2D" parent="Stage 3/Player" unique_id=1628772175]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Player/PickupArea" unique_id=1516087234]
+position = Vector2(12, 38)
+shape = SubResource("RectangleShape2D_im8tp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Player" unique_id=1402673412]
+position = Vector2(12, 38)
+shape = SubResource("RectangleShape2D_im8tp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Stage 3/Player" unique_id=656771250]
+
+[node name="SlimeCount" type="Label" parent="Stage 3/Player/CanvasLayer" unique_id=1674822343]
+offset_left = 971.0
+offset_top = 14.0
+offset_right = 1130.0
+offset_bottom = 42.0
+text = "Slimes Collected: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="PinkSlime2" parent="Stage 3" unique_id=289915431 instance=ExtResource("7_wihnt")]
+position = Vector2(483, 170)
+
+[node name="PinkSlime3" parent="Stage 3" unique_id=117832653 instance=ExtResource("7_wihnt")]
+position = Vector2(990, 556)
+
+[node name="PinkSlime4" parent="Stage 3" unique_id=1536316825 instance=ExtResource("7_wihnt")]
+position = Vector2(1098, 552)
+
+[node name="PinkSlime6" parent="Stage 3" unique_id=2062200621 instance=ExtResource("7_wihnt")]
+position = Vector2(726, 553)
+
+[node name="PinkSlime7" parent="Stage 3" unique_id=1000710665 instance=ExtResource("7_wihnt")]
+position = Vector2(866, 557)
+
+[node name="PinkSlime8" parent="Stage 3" unique_id=1122639402 instance=ExtResource("7_wihnt")]
+position = Vector2(589, 171)
+
+[node name="Ground" type="StaticBody2D" parent="Stage 3" unique_id=176791136]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 3/Ground" unique_id=1475499257]
+offset_left = -8.0
+offset_top = 575.0
+offset_right = 287.0
+offset_bottom = 816.0
+texture = ExtResource("8_7mt2f")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Ground" unique_id=2048938041]
+position = Vector2(132.125, 640)
+shape = SubResource("RectangleShape2D_0lp30")
+
+[node name="Ground2" type="StaticBody2D" parent="Stage 3" unique_id=2029803879]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 3/Ground2" unique_id=1701355337]
+offset_left = 476.0
+offset_top = 566.0
+offset_right = 1188.0
+offset_bottom = 663.0
+texture = ExtResource("8_7mt2f")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Ground2" unique_id=1560292250]
+position = Vector2(830, 618)
+shape = SubResource("RectangleShape2D_ykjhm")
+
+[node name="Ground3" type="StaticBody2D" parent="Stage 3" unique_id=53295882]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 3/Ground3" unique_id=253696064]
+offset_left = 413.0
+offset_top = 187.0
+offset_right = 666.0
+offset_bottom = 284.0
+texture = ExtResource("8_7mt2f")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Ground3" unique_id=1368652255]
+position = Vector2(538, 241)
+shape = SubResource("RectangleShape2D_tgotf")
+
+[node name="Wall" type="StaticBody2D" parent="Stage 3" unique_id=1333763068]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Wall" unique_id=205415108]
+position = Vector2(0, 409.5)
+shape = SubResource("RectangleShape2D_176n1")
+one_way_collision_direction = Vector2(1, 0)
+debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
+
+[node name="Wall2" type="StaticBody2D" parent="Stage 3" unique_id=2059024911]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Wall2" unique_id=132615736]
+position = Vector2(1152, 421)
+shape = SubResource("RectangleShape2D_176n1")
+one_way_collision_direction = Vector2(1, 0)
+debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
+
+[node name="Bottom" type="Area2D" parent="Stage 3" unique_id=422175865]
+script = ExtResource("9_im8tp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Bottom" unique_id=1600140218 groups=["bottom"]]
+position = Vector2(566, 905.5)
+shape = SubResource("RectangleShape2D_afka0")
+
+[connection signal="area_entered" from="Stage 3/Player/PickupArea" to="Stage 3/Player" method="_on_pickuparea_area_entered"]
+[connection signal="area_entered" from="Stage 3/Player/PickupArea" to="Stage 3/Player" method="_on_pickup_area_area_entered"]
+[connection signal="body_entered" from="Stage 3/Bottom" to="Stage 3/Bottom" method="_on_body_entered"]

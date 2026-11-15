@@ -4,10 +4,9 @@ extends CharacterBody2D
 @export var bounce_force: float = -1500.0
 @export var gravity: float = 1200.0
 
-var slime = 0
-
-
 func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y += gravity * delta
 	
 	velocity.y -= bounce_force
 	velocity.y = min(velocity.y,-bounce_force)
@@ -21,12 +20,22 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func _ready():
+	$CanvasLayer/SlimeCount.text = "Slimes Collected: " + str(Globalvars.slime)
+
 func _on_pickuparea_area_entered(area):
 	if area.is_in_group("slime"):
 		area.queue_free()
-		slime += 1
-		$CanvasLayer/SlimeCount.text = "Slimes Collected: " + str(slime)
-
+		Globalvars.slime +=1
+		$CanvasLayer/SlimeCount.text = "Slimes Collected: " + str(Globalvars.slime)
+		if Globalvars.slime == 9:
+			Globalvars.stage += 1
+			bounce_force = -1000.0
+			get_tree().change_scene_to_file("res://Stage 2.tscn")
+		elif Globalvars.slime == 15:
+			Globalvars.stage += 1
+			get_tree().change_scene_to_file("res://Stage 3.tscn")
+			
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bounce"):

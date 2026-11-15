@@ -7,17 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="3_ug7ek"]
 [ext_resource type="Texture2D" uid="uid://bk7vs5sv5r655" path="res://Background Cluods.png" id="3_ylgda"]
 [ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="4_7f2o3"]
+[ext_resource type="Texture2D" uid="uid://cjqsey6s7t43a" path="res://Springy.png" id="4_6802c"]
 [ext_resource type="Texture2D" uid="uid://trvl0wkwb3kw" path="res://Ground Corner.png" id="5_uo8sn"]
-[ext_resource type="Texture2D" uid="uid://bwlir6wo4g65" path="res://blu.jpg" id="6_rxh2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ws73l"]
-size = Vector2(123, 164.5)
+size = Vector2(56, 161.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afka0"]
 size = Vector2(82, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtbxn"]
-size = Vector2(1177.5, 90)
+size = Vector2(1177.5, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60ojf"]
 size = Vector2(748, 88.5)
@@ -25,111 +25,114 @@ size = Vector2(748, 88.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nl4k"]
 size = Vector2(20, 839)
 
-[node name="Node2D" type="Node2D" unique_id=859023814]
+[node name="Overall" type="Node2D" unique_id=859023814]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=634321090]
+[node name="Stage 1" type="Node" parent="." unique_id=440318380]
+
+[node name="Background" type="Sprite2D" parent="Stage 1" unique_id=634321090]
 position = Vector2(573.5, 296)
 scale = Vector2(1.4412501, 1.05)
 texture = ExtResource("1_6802c")
 
-[node name="Tower" type="Sprite2D" parent="." unique_id=891981505]
+[node name="Tower" type="Sprite2D" parent="Stage 1" unique_id=891981505]
 position = Vector2(437.99997, 321)
 scale = Vector2(1.0375, 1.0535715)
 texture = ExtResource("2_rf0v1")
 
-[node name="Clouds" type="Sprite2D" parent="." unique_id=2030073492]
+[node name="Clouds" type="Sprite2D" parent="Stage 1" unique_id=2030073492]
 position = Vector2(293, 578)
 texture = ExtResource("3_ylgda")
 
-[node name="Clouds2" type="Sprite2D" parent="." unique_id=778663611]
+[node name="Clouds2" type="Sprite2D" parent="Stage 1" unique_id=778663611]
 position = Vector2(790, 232)
 texture = ExtResource("3_ylgda")
 
-[node name="Bouncepad" type="Area2D" parent="." unique_id=769174331 groups=["bounce"]]
+[node name="Bouncepad" type="Area2D" parent="Stage 1" unique_id=769174331 groups=["bounce"]]
 
-[node name="Sprite2D" type="Sprite2D" parent="Bouncepad" unique_id=965172895 groups=["bounce"]]
-position = Vector2(763, 588)
-scale = Vector2(0.24899994, 0.09799996)
-texture = ExtResource("6_rxh2k")
+[node name="Sprite2D" type="Sprite2D" parent="Stage 1/Bouncepad" unique_id=965172895 groups=["bounce"]]
+position = Vector2(778.00006, 563)
+scale = Vector2(0.24899994, 0.19649997)
+texture = ExtResource("4_6802c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bouncepad" unique_id=1964256182]
-position = Vector2(762.5, 645.25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Bouncepad" unique_id=1964256182]
+position = Vector2(779, 633.625)
 shape = SubResource("RectangleShape2D_ws73l")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=862969182]
+[node name="Player" type="CharacterBody2D" parent="Stage 1" unique_id=862969182]
 position = Vector2(71, 455)
 script = ExtResource("1_ug7ek")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=910534290]
+[node name="Sprite2D" type="Sprite2D" parent="Stage 1/Player" unique_id=910534290]
 position = Vector2(9, 21.000008)
 scale = Vector2(0.51037997, 0.53538764)
 texture = ExtResource("2_uo8sn")
 
-[node name="PickupArea" type="Area2D" parent="Player" unique_id=1690137610]
+[node name="PickupArea" type="Area2D" parent="Stage 1/Player" unique_id=1690137610]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PickupArea" unique_id=1478863358]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Player/PickupArea" unique_id=1478863358]
 position = Vector2(12, 38)
 shape = SubResource("RectangleShape2D_afka0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1539639857]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Player" unique_id=1539639857]
 position = Vector2(12, 38)
 shape = SubResource("RectangleShape2D_afka0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1184237900]
+[node name="CanvasLayer" type="CanvasLayer" parent="Stage 1/Player" unique_id=1184237900]
 
-[node name="SlimeCount" type="Label" parent="Player/CanvasLayer" unique_id=1054251673]
+[node name="SlimeCount" type="Label" parent="Stage 1/Player/CanvasLayer" unique_id=1054251673]
 offset_left = 971.0
 offset_top = 14.0
 offset_right = 1130.0
 offset_bottom = 42.0
 text = "Slimes Collected: 0"
+metadata/_edit_use_anchors_ = true
 
-[node name="PinkSlime" parent="." unique_id=289915431 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime" parent="Stage 1" unique_id=289915431 instance=ExtResource("3_ug7ek")]
 position = Vector2(270, 563)
 
-[node name="PinkSlime2" parent="." unique_id=171741661 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime2" parent="Stage 1" unique_id=171741661 instance=ExtResource("3_ug7ek")]
 position = Vector2(593, 562)
 
-[node name="PinkSlime3" parent="." unique_id=861567898 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime3" parent="Stage 1" unique_id=861567898 instance=ExtResource("3_ug7ek")]
 position = Vector2(457, 563)
 
-[node name="PinkSlime4" parent="." unique_id=1629781711 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime4" parent="Stage 1" unique_id=1629781711 instance=ExtResource("3_ug7ek")]
 position = Vector2(50, 219)
 
-[node name="PinkSlime5" parent="." unique_id=995859752 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime5" parent="Stage 1" unique_id=995859752 instance=ExtResource("3_ug7ek")]
 position = Vector2(524, 224)
 
-[node name="PinkSlime6" parent="." unique_id=2005720812 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime6" parent="Stage 1" unique_id=2005720812 instance=ExtResource("3_ug7ek")]
 position = Vector2(887, 562)
 
-[node name="PinkSlime7" parent="." unique_id=2110225019 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime7" parent="Stage 1" unique_id=2110225019 instance=ExtResource("3_ug7ek")]
 position = Vector2(995, 561)
 
-[node name="PinkSlime8" parent="." unique_id=2095422703 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime8" parent="Stage 1" unique_id=2095422703 instance=ExtResource("3_ug7ek")]
 position = Vector2(203, 223)
 
-[node name="PinkSlime9" parent="." unique_id=1205216652 instance=ExtResource("3_ug7ek")]
+[node name="PinkSlime9" parent="Stage 1" unique_id=1205216652 instance=ExtResource("3_ug7ek")]
 position = Vector2(353, 223)
 
-[node name="Ground" type="StaticBody2D" parent="." unique_id=1943388281]
+[node name="Ground" type="StaticBody2D" parent="Stage 1" unique_id=1943388281]
 
-[node name="TextureRect" type="NinePatchRect" parent="Ground" unique_id=1635380536]
-offset_left = -2.0
+[node name="TextureRect" type="NinePatchRect" parent="Stage 1/Ground" unique_id=1635380536]
+offset_left = -8.0
 offset_top = 575.0
-offset_right = 1171.0
+offset_right = 1165.0
 offset_bottom = 816.0
 texture = ExtResource("4_7f2o3")
 patch_margin_top = 41
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=418365134]
-position = Vector2(565.25, 628)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Ground" unique_id=418365134]
+position = Vector2(566, 640)
 shape = SubResource("RectangleShape2D_gtbxn")
 
-[node name="Ground2" type="StaticBody2D" parent="." unique_id=1117009121]
+[node name="Ground2" type="StaticBody2D" parent="Stage 1" unique_id=1117009121]
 
-[node name="TextureRect" type="NinePatchRect" parent="Ground2" unique_id=2099961970]
+[node name="TextureRect" type="NinePatchRect" parent="Stage 1/Ground2" unique_id=2099961970]
 offset_left = -88.0
 offset_top = 236.0
 offset_right = 506.0
@@ -139,13 +142,13 @@ patch_margin_top = 41
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=18462618]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Ground2" unique_id=18462618]
 position = Vector2(307, 285.75)
 shape = SubResource("RectangleShape2D_60ojf")
 
-[node name="Ground3" type="StaticBody2D" parent="." unique_id=1621455836]
+[node name="Ground3" type="StaticBody2D" parent="Stage 1" unique_id=1621455836]
 
-[node name="TextureRect" type="NinePatchRect" parent="Ground3" unique_id=971352005]
+[node name="TextureRect" type="NinePatchRect" parent="Stage 1/Ground3" unique_id=971352005]
 offset_left = -88.0
 offset_top = 236.0
 offset_right = 615.0
@@ -155,9 +158,9 @@ patch_margin_top = 41
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="corner" type="StaticBody2D" parent="." unique_id=797196689]
+[node name="corner" type="StaticBody2D" parent="Stage 1" unique_id=797196689]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="corner" unique_id=1528019199]
+[node name="NinePatchRect" type="NinePatchRect" parent="Stage 1/corner" unique_id=1528019199]
 offset_left = 615.0
 offset_top = 240.0
 offset_right = 691.0
@@ -167,21 +170,21 @@ patch_margin_top = 57
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="Wall" type="StaticBody2D" parent="." unique_id=1489017828]
+[node name="Wall" type="StaticBody2D" parent="Stage 1" unique_id=1489017828]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1830065108]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Wall" unique_id=1830065108]
 position = Vector2(0, 409.5)
 shape = SubResource("RectangleShape2D_0nl4k")
 one_way_collision_direction = Vector2(1, 0)
 debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
 
-[node name="Wall2" type="StaticBody2D" parent="." unique_id=153631043]
+[node name="Wall2" type="StaticBody2D" parent="Stage 1" unique_id=153631043]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=1554730240]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Wall2" unique_id=1554730240]
 position = Vector2(1152, 421)
 shape = SubResource("RectangleShape2D_0nl4k")
 one_way_collision_direction = Vector2(1, 0)
 debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
 
-[connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickuparea_area_entered"]
-[connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickup_area_area_entered"]
+[connection signal="area_entered" from="Stage 1/Player/PickupArea" to="Stage 1/Player" method="_on_pickuparea_area_entered"]
+[connection signal="area_entered" from="Stage 1/Player/PickupArea" to="Stage 1/Player" method="_on_pickup_area_area_entered"]

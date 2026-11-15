@@ -15,6 +15,10 @@ run/main_scene="uid://cvsfbruifc585"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globalvars="*uid://x2uaxg74ebfy"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -25,6 +29,7 @@ window/stretch/aspect="expand"
 red=""
 slime=""
 bounce=""
+bottom=""
 
 [input]
 
