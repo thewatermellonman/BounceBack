@@ -1,4 +1,4 @@
 extends Node
 
 var slime = 0
-var stage = 1
+var stage = 0

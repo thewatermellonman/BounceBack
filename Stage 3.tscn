@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="7_wihnt"]
 [ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="8_7mt2f"]
 [ext_resource type="Script" uid="uid://drni075lmb8fe" path="res://bottom.gd" id="9_im8tp"]
+[ext_resource type="FontFile" uid="uid://c48l6ceu1k3tf" path="res://ByteBounce.ttf" id="10_0lp30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75d07"]
 size = Vector2(56, 121.90625)
@@ -82,16 +83,6 @@ shape = SubResource("RectangleShape2D_im8tp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Player" unique_id=1402673412]
 position = Vector2(12, 38)
 shape = SubResource("RectangleShape2D_im8tp")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Stage 3/Player" unique_id=656771250]
-
-[node name="SlimeCount" type="Label" parent="Stage 3/Player/CanvasLayer" unique_id=1674822343]
-offset_left = 971.0
-offset_top = 14.0
-offset_right = 1130.0
-offset_bottom = 42.0
-text = "Slimes Collected: 0"
-metadata/_edit_use_anchors_ = true
 
 [node name="PinkSlime2" parent="Stage 3" unique_id=289915431 instance=ExtResource("7_wihnt")]
 position = Vector2(483, 170)
@@ -181,6 +172,27 @@ script = ExtResource("9_im8tp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 3/Bottom" unique_id=1600140218 groups=["bottom"]]
 position = Vector2(566, 905.5)
 shape = SubResource("RectangleShape2D_afka0")
+
+[node name="Tutorial" type="CanvasLayer" parent="Stage 3" unique_id=1658850945]
+
+[node name="PanelContainer" type="PanelContainer" parent="Stage 3/Tutorial" unique_id=1929329112]
+offset_left = 849.0
+offset_top = 17.0
+offset_right = 1127.0
+offset_bottom = 169.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Stage 3/Tutorial/PanelContainer" unique_id=373881582]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stage 3/Tutorial/PanelContainer/MarginContainer" unique_id=803490357]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("10_0lp30")
+theme_override_font_sizes/normal_font_size = 32
+text = "Now try some trickier levels!"
 
 [connection signal="area_entered" from="Stage 3/Player/PickupArea" to="Stage 3/Player" method="_on_pickuparea_area_entered"]
 [connection signal="area_entered" from="Stage 3/Player/PickupArea" to="Stage 3/Player" method="_on_pickup_area_area_entered"]

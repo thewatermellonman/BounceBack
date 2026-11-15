@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsb1ohfsfwmj1" path="res://Princess True.png" id="6_3rsks"]
 [ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="7_b2fnx"]
 [ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="8_2slsw"]
+[ext_resource type="FontFile" uid="uid://c48l6ceu1k3tf" path="res://ByteBounce.ttf" id="9_6l2hj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0lx3"]
 size = Vector2(56, 121.90625)
@@ -90,16 +91,6 @@ shape = SubResource("RectangleShape2D_qcu33")
 position = Vector2(12, 38)
 shape = SubResource("RectangleShape2D_qcu33")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Stage 2/Player" unique_id=1186183158]
-
-[node name="SlimeCount" type="Label" parent="Stage 2/Player/CanvasLayer" unique_id=223127423]
-offset_left = 971.0
-offset_top = 14.0
-offset_right = 1130.0
-offset_bottom = 42.0
-text = "Slimes Collected: 0"
-metadata/_edit_use_anchors_ = true
-
 [node name="PinkSlime2" parent="Stage 2" unique_id=289915431 instance=ExtResource("7_b2fnx")]
 position = Vector2(764, 216)
 
@@ -181,6 +172,27 @@ position = Vector2(1152, 421)
 shape = SubResource("RectangleShape2D_t8v4n")
 one_way_collision_direction = Vector2(1, 0)
 debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
+
+[node name="Tutorial" type="CanvasLayer" parent="Stage 2" unique_id=568696790]
+
+[node name="PanelContainer" type="PanelContainer" parent="Stage 2/Tutorial" unique_id=156611289]
+offset_left = 849.0
+offset_top = 17.0
+offset_right = 1127.0
+offset_bottom = 169.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Stage 2/Tutorial/PanelContainer" unique_id=376592251]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stage 2/Tutorial/PanelContainer/MarginContainer" unique_id=1980175885]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("9_6l2hj")
+theme_override_font_sizes/normal_font_size = 32
+text = "Now try some trickier levels!"
 
 [connection signal="area_entered" from="Stage 2/Player/PickupArea" to="Stage 2/Player" method="_on_pickuparea_area_entered"]
 [connection signal="area_entered" from="Stage 2/Player/PickupArea" to="Stage 2/Player" method="_on_pickup_area_area_entered"]

@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://ddht0hev8jp3e"]
+
+[ext_resource type="FontFile" uid="uid://c48l6ceu1k3tf" path="res://ByteBounce.ttf" id="1_826ob"]
+[ext_resource type="Texture2D" uid="uid://dy03txws1hglj" path="res://Background Sky.png" id="1_cohnc"]
+[ext_resource type="Texture2D" uid="uid://b6agwk6f2n4y3" path="res://Background Tower.png" id="2_826ob"]
+[ext_resource type="Texture2D" uid="uid://bk7vs5sv5r655" path="res://Background Cluods.png" id="3_0unb2"]
+[ext_resource type="Texture2D" uid="uid://cjqsey6s7t43a" path="res://Springy.png" id="4_50akn"]
+[ext_resource type="Script" uid="uid://noq5t8tr68t5" path="res://character_body_2d.gd" id="5_yk6fb"]
+[ext_resource type="Texture2D" uid="uid://bsb1ohfsfwmj1" path="res://Princess True.png" id="6_3du0i"]
+[ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="7_dryou"]
+[ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="8_6imyy"]
+[ext_resource type="Texture2D" uid="uid://trvl0wkwb3kw" path="res://Ground Corner.png" id="9_7itgf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jov1o"]
+size = Vector2(56, 161.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18m6c"]
+size = Vector2(82, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihqfo"]
+size = Vector2(1177.5, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8xe"]
+size = Vector2(748, 88.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vllfd"]
+size = Vector2(20, 839)
+
+[node name="Stage1" type="Node2D" unique_id=514221081]
+
+[node name="Stage 1" type="Node" parent="." unique_id=1648984695]
+
+[node name="Tutorial" type="CanvasLayer" parent="Stage 1" unique_id=1622948910]
+
+[node name="PanelContainer" type="PanelContainer" parent="Stage 1/Tutorial" unique_id=643032332]
+offset_left = 849.0
+offset_top = 17.0
+offset_right = 1127.0
+offset_bottom = 169.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Stage 1/Tutorial/PanelContainer" unique_id=1007213483]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stage 1/Tutorial/PanelContainer/MarginContainer" unique_id=1076643629]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_826ob")
+theme_override_font_sizes/normal_font_size = 32
+text = "The princess can't jump on her own, so use the sping to jump!"
+
+[node name="Background" type="Sprite2D" parent="Stage 1" unique_id=478533167]
+position = Vector2(573.5, 296)
+scale = Vector2(1.4412501, 1.05)
+texture = ExtResource("1_cohnc")
+
+[node name="Tower" type="Sprite2D" parent="Stage 1" unique_id=908039305]
+position = Vector2(437.99997, 321)
+scale = Vector2(1.0375, 1.0535715)
+texture = ExtResource("2_826ob")
+
+[node name="Clouds" type="Sprite2D" parent="Stage 1" unique_id=1872243279]
+position = Vector2(293, 578)
+texture = ExtResource("3_0unb2")
+
+[node name="Clouds2" type="Sprite2D" parent="Stage 1" unique_id=1816287715]
+position = Vector2(790, 232)
+texture = ExtResource("3_0unb2")
+
+[node name="Bouncepad" type="Area2D" parent="Stage 1" unique_id=1206452520 groups=["bounce"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage 1/Bouncepad" unique_id=734282874 groups=["bounce"]]
+position = Vector2(778.00006, 563)
+scale = Vector2(0.24899994, 0.19649997)
+texture = ExtResource("4_50akn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Bouncepad" unique_id=382276607]
+position = Vector2(779, 633.625)
+shape = SubResource("RectangleShape2D_jov1o")
+
+[node name="Player" type="CharacterBody2D" parent="Stage 1" unique_id=716226428]
+position = Vector2(71, 455)
+script = ExtResource("5_yk6fb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage 1/Player" unique_id=44940192]
+position = Vector2(9, 21.000008)
+scale = Vector2(0.51037997, 0.53538764)
+texture = ExtResource("6_3du0i")
+
+[node name="PickupArea" type="Area2D" parent="Stage 1/Player" unique_id=1903263458]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Player/PickupArea" unique_id=1279389084]
+position = Vector2(12, 38)
+shape = SubResource("RectangleShape2D_18m6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Player" unique_id=40655847]
+position = Vector2(12, 38)
+shape = SubResource("RectangleShape2D_18m6c")
+
+[node name="PinkSlime" parent="Stage 1" unique_id=289915431 instance=ExtResource("7_dryou")]
+position = Vector2(270, 563)
+
+[node name="PinkSlime2" parent="Stage 1" unique_id=966576060 instance=ExtResource("7_dryou")]
+position = Vector2(593, 562)
+
+[node name="PinkSlime3" parent="Stage 1" unique_id=843091440 instance=ExtResource("7_dryou")]
+position = Vector2(457, 563)
+
+[node name="PinkSlime4" parent="Stage 1" unique_id=1270309644 instance=ExtResource("7_dryou")]
+position = Vector2(50, 219)
+
+[node name="PinkSlime5" parent="Stage 1" unique_id=1244078699 instance=ExtResource("7_dryou")]
+position = Vector2(524, 224)
+
+[node name="PinkSlime6" parent="Stage 1" unique_id=137271854 instance=ExtResource("7_dryou")]
+position = Vector2(887, 562)
+
+[node name="PinkSlime7" parent="Stage 1" unique_id=1072235076 instance=ExtResource("7_dryou")]
+position = Vector2(995, 561)
+
+[node name="PinkSlime8" parent="Stage 1" unique_id=1337973949 instance=ExtResource("7_dryou")]
+position = Vector2(203, 223)
+
+[node name="PinkSlime9" parent="Stage 1" unique_id=1777686065 instance=ExtResource("7_dryou")]
+position = Vector2(353, 223)
+
+[node name="Ground" type="StaticBody2D" parent="Stage 1" unique_id=1859363318]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 1/Ground" unique_id=1277113906]
+offset_left = -8.0
+offset_top = 575.0
+offset_right = 1165.0
+offset_bottom = 816.0
+texture = ExtResource("8_6imyy")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Ground" unique_id=1564469039]
+position = Vector2(566, 640)
+shape = SubResource("RectangleShape2D_ihqfo")
+
+[node name="Ground2" type="StaticBody2D" parent="Stage 1" unique_id=1249532847]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 1/Ground2" unique_id=1358114841]
+offset_left = -88.0
+offset_top = 236.0
+offset_right = 506.0
+offset_bottom = 333.0
+texture = ExtResource("8_6imyy")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Ground2" unique_id=176241752]
+position = Vector2(307, 285.75)
+shape = SubResource("RectangleShape2D_ao8xe")
+
+[node name="Ground3" type="StaticBody2D" parent="Stage 1" unique_id=1151275]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 1/Ground3" unique_id=2146340796]
+offset_left = -88.0
+offset_top = 236.0
+offset_right = 615.0
+offset_bottom = 333.0
+texture = ExtResource("8_6imyy")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="corner" type="StaticBody2D" parent="Stage 1" unique_id=1955291336]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Stage 1/corner" unique_id=1126462691]
+offset_left = 615.0
+offset_top = 240.0
+offset_right = 691.0
+offset_bottom = 334.0
+texture = ExtResource("9_7itgf")
+patch_margin_top = 57
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Wall" type="StaticBody2D" parent="Stage 1" unique_id=1408222828]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Wall" unique_id=2101095980]
+position = Vector2(0, 409.5)
+shape = SubResource("RectangleShape2D_vllfd")
+one_way_collision_direction = Vector2(1, 0)
+debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
+
+[node name="Wall2" type="StaticBody2D" parent="Stage 1" unique_id=1134388001]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Wall2" unique_id=1858924544]
+position = Vector2(1152, 421)
+shape = SubResource("RectangleShape2D_vllfd")
+one_way_collision_direction = Vector2(1, 0)
+debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
+
+[connection signal="area_entered" from="Stage 1/Player/PickupArea" to="Stage 1/Player" method="_on_pickuparea_area_entered"]
+[connection signal="area_entered" from="Stage 1/Player/PickupArea" to="Stage 1/Player" method="_on_pickup_area_area_entered"]

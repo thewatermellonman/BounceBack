@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var speed: float = 100.0
+@export var speed: float = 75.0
 @export var jump_force: float = -450.0
 @export var bounce_force: float = -1500.0
 @export var gravity: float = 1200.0
@@ -20,22 +20,27 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _ready():
-	$CanvasLayer/SlimeCount.text = "Slimes Collected: " + str(Globalvars.slime)
-
 func _on_pickuparea_area_entered(area):
 	if area.is_in_group("slime"):
 		area.queue_free()
 		Globalvars.slime +=1
-		$CanvasLayer/SlimeCount.text = "Slimes Collected: " + str(Globalvars.slime)
-		if Globalvars.slime == 9:
+		print(Globalvars.slime)
+		if Globalvars.slime == 5:
 			Globalvars.stage += 1
 			bounce_force = -1000.0
+			get_tree().change_scene_to_file("res://Stage 1.tscn")
+		elif Globalvars.slime == 14:
+			Globalvars.stage += 1
 			get_tree().change_scene_to_file("res://Stage 2.tscn")
-		elif Globalvars.slime == 15:
+		elif Globalvars.slime == 20:
 			Globalvars.stage += 1
 			get_tree().change_scene_to_file("res://Stage 3.tscn")
-			
+		elif Globalvars.slime == 26:
+			Globalvars.stage += 1
+			get_tree().change_scene_to_file("res://Stage 4.tscn")
+		elif Globalvars.slime == 35:
+			Globalvars.stage += 1
+			get_tree().change_scene_to_file("res://Stage 5.tscn")
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bounce"):

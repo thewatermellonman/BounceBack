@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://1klwttlrkmnv"]
+
+[ext_resource type="Texture2D" uid="uid://dy03txws1hglj" path="res://Background Sky.png" id="1_1vl57"]
+[ext_resource type="Texture2D" uid="uid://b6agwk6f2n4y3" path="res://Background Tower.png" id="2_vf0qd"]
+[ext_resource type="Texture2D" uid="uid://bk7vs5sv5r655" path="res://Background Cluods.png" id="3_8g1dh"]
+[ext_resource type="Texture2D" uid="uid://cjqsey6s7t43a" path="res://Springy.png" id="4_kle1h"]
+[ext_resource type="Script" uid="uid://noq5t8tr68t5" path="res://character_body_2d.gd" id="5_u10p5"]
+[ext_resource type="Texture2D" uid="uid://bsb1ohfsfwmj1" path="res://Princess True.png" id="6_ce2c4"]
+[ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="7_u6grv"]
+[ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="8_x1kl8"]
+[ext_resource type="Script" uid="uid://drni075lmb8fe" path="res://bottom.gd" id="9_gvibi"]
+[ext_resource type="Texture2D" uid="uid://trvl0wkwb3kw" path="res://Ground Corner.png" id="10_wa77m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gm7l"]
+size = Vector2(56, 121.90625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fna2"]
+size = Vector2(82, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suyve"]
+size = Vector2(379, 83.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aph4m"]
+size = Vector2(1183, 88.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuth"]
+size = Vector2(248.5, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nqaa"]
+size = Vector2(20, 839)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tshs"]
+size = Vector2(1418, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afka0"]
+size = Vector2(80, 217.5)
+
+[node name="Stage4" type="Node2D" unique_id=490182159]
+
+[node name="Stage 4" type="Node" parent="." unique_id=1852121350]
+
+[node name="Background" type="Sprite2D" parent="Stage 4" unique_id=760423956]
+position = Vector2(573.5, 332)
+scale = Vector2(1.4412501, 1.1785713)
+texture = ExtResource("1_1vl57")
+
+[node name="Tower" type="Sprite2D" parent="Stage 4" unique_id=1957144305]
+position = Vector2(437.99997, 321)
+scale = Vector2(1.0375, 1.0535715)
+texture = ExtResource("2_vf0qd")
+
+[node name="Clouds" type="Sprite2D" parent="Stage 4" unique_id=1450565356]
+position = Vector2(132, 473)
+texture = ExtResource("3_8g1dh")
+
+[node name="Clouds2" type="Sprite2D" parent="Stage 4" unique_id=1838452367]
+position = Vector2(790, 232)
+texture = ExtResource("3_8g1dh")
+
+[node name="Bouncepad" type="Area2D" parent="Stage 4" unique_id=283931883 groups=["bounce"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage 4/Bouncepad" unique_id=1732006857 groups=["bounce"]]
+position = Vector2(60.000122, 575)
+scale = Vector2(0.24899994, 0.19649997)
+texture = ExtResource("4_kle1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Bouncepad" unique_id=990909878]
+position = Vector2(62, 624)
+shape = SubResource("RectangleShape2D_1gm7l")
+
+[node name="Bouncepad2" type="Area2D" parent="Stage 4" unique_id=1495608484 groups=["bounce"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage 4/Bouncepad2" unique_id=1527430529 groups=["bounce"]]
+position = Vector2(652.99994, 575.00006)
+scale = Vector2(0.24899994, 0.19649997)
+texture = ExtResource("4_kle1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Bouncepad2" unique_id=732864180]
+position = Vector2(653, 625)
+shape = SubResource("RectangleShape2D_1gm7l")
+
+[node name="Player" type="CharacterBody2D" parent="Stage 4" unique_id=698432650]
+position = Vector2(71, 455)
+script = ExtResource("5_u10p5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage 4/Player" unique_id=1939826609]
+position = Vector2(8, -381)
+scale = Vector2(0.51037997, 0.53538764)
+texture = ExtResource("6_ce2c4")
+
+[node name="PickupArea" type="Area2D" parent="Stage 4/Player" unique_id=1301283268]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Player/PickupArea" unique_id=870532142]
+position = Vector2(9, -361)
+shape = SubResource("RectangleShape2D_7fna2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Player" unique_id=883088947]
+position = Vector2(7, -362)
+shape = SubResource("RectangleShape2D_7fna2")
+
+[node name="PinkSlime2" parent="Stage 4" unique_id=289915431 instance=ExtResource("7_u6grv")]
+position = Vector2(771, 155)
+
+[node name="PinkSlime5" parent="Stage 4" unique_id=969675540 instance=ExtResource("7_u6grv")]
+position = Vector2(1067, 576)
+
+[node name="PinkSlime3" parent="Stage 4" unique_id=1075040777 instance=ExtResource("7_u6grv")]
+position = Vector2(67, 271)
+
+[node name="PinkSlime4" parent="Stage 4" unique_id=2129692294 instance=ExtResource("7_u6grv")]
+position = Vector2(259, 269)
+
+[node name="PinkSlime6" parent="Stage 4" unique_id=2133617554 instance=ExtResource("7_u6grv")]
+position = Vector2(758, 586)
+
+[node name="PinkSlime7" parent="Stage 4" unique_id=2079378117 instance=ExtResource("7_u6grv")]
+position = Vector2(919, 585)
+
+[node name="PinkSlime8" parent="Stage 4" unique_id=20125495 instance=ExtResource("7_u6grv")]
+position = Vector2(917, 155)
+
+[node name="Ground" type="StaticBody2D" parent="Stage 4" unique_id=940124136]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 4/Ground" unique_id=807576507]
+offset_left = -43.0
+offset_top = 170.0
+offset_right = 305.0
+offset_bottom = 258.0
+texture = ExtResource("8_x1kl8")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Ground" unique_id=711006694]
+position = Vector2(119.5, 214.5)
+shape = SubResource("RectangleShape2D_suyve")
+
+[node name="Ground2" type="StaticBody2D" parent="Stage 4" unique_id=482215921]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 4/Ground2" unique_id=789626005]
+offset_left = -8.0
+offset_top = 591.0
+offset_right = 1173.0
+offset_bottom = 688.0
+texture = ExtResource("8_x1kl8")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Ground2" unique_id=104145196]
+position = Vector2(593.5, 640)
+shape = SubResource("RectangleShape2D_aph4m")
+
+[node name="Ground3" type="StaticBody2D" parent="Stage 4" unique_id=1292298841]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 4/Ground3" unique_id=888412677]
+offset_left = 732.0
+offset_top = 163.0
+offset_right = 985.0
+offset_bottom = 260.0
+texture = ExtResource("8_x1kl8")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Ground3" unique_id=1221358908]
+position = Vector2(858, 215)
+shape = SubResource("RectangleShape2D_kbuth")
+
+[node name="Wall" type="StaticBody2D" parent="Stage 4" unique_id=1048552454]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Wall" unique_id=594359475]
+position = Vector2(0, 409.5)
+shape = SubResource("RectangleShape2D_8nqaa")
+one_way_collision_direction = Vector2(1, 0)
+debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
+
+[node name="Wall2" type="StaticBody2D" parent="Stage 4" unique_id=2048207123]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Wall2" unique_id=326196039]
+position = Vector2(1152, 421)
+shape = SubResource("RectangleShape2D_8nqaa")
+one_way_collision_direction = Vector2(1, 0)
+debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
+
+[node name="Bottom" type="Area2D" parent="Stage 4" unique_id=1640454177]
+script = ExtResource("9_gvibi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/Bottom" unique_id=31877708 groups=["bottom"]]
+position = Vector2(566, 905.5)
+shape = SubResource("RectangleShape2D_2tshs")
+
+[node name="corner" type="StaticBody2D" parent="Stage 4" unique_id=561813797]
+
+[node name="TextureRect" type="NinePatchRect" parent="Stage 4/corner" unique_id=479697174]
+offset_left = 305.0
+offset_top = 174.0
+offset_right = 381.0
+offset_bottom = 392.0
+texture = ExtResource("10_wa77m")
+patch_margin_top = 41
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 4/corner" unique_id=1817928645]
+position = Vector2(341, 283)
+shape = SubResource("RectangleShape2D_afka0")
+
+[connection signal="area_entered" from="Stage 4/Player/PickupArea" to="Stage 4/Player" method="_on_pickuparea_area_entered"]
+[connection signal="area_entered" from="Stage 4/Player/PickupArea" to="Stage 4/Player" method="_on_pickup_area_area_entered"]
+[connection signal="body_entered" from="Stage 4/Bottom" to="Stage 4/Bottom" method="_on_body_entered"]
