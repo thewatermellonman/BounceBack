@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dac4y56eem31b"]
+
+[ext_resource type="Script" uid="uid://wo6feqayv8lf" path="res://lost.gd" id="1_6jhsg"]
+[ext_resource type="Texture2D" uid="uid://b3porcrhrvsak" path="res://End Screen Lost.png" id="2_6jhsg"]
+[ext_resource type="FontFile" uid="uid://c48l6ceu1k3tf" path="res://ByteBounce.ttf" id="3_2a04b"]
+
+[node name="Node2D" type="Node2D" unique_id=2079483329]
+script = ExtResource("1_6jhsg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=536149797]
+position = Vector2(576, 324)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_6jhsg")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1495199083]
+offset_left = 757.0
+offset_top = 557.0
+offset_right = 1554.0
+offset_bottom = 996.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_2a04b")
+theme_override_font_sizes/normal_font_size = 57
+text = "Space to cont."

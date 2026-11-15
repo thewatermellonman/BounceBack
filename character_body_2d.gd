@@ -21,6 +21,14 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+var chompp = 0
+
+func _on_sprite_2d_chomp() -> void:
+	chompp = 1
+
+func _on_sprite_2d_no_chomp() -> void:
+	chompp = 0
+
 func _on_pickuparea_area_entered(area):
 	if area.is_in_group("slime"):
 		area.queue_free()
@@ -62,11 +70,17 @@ signal health_one()
 signal dead()
 
 func _on_boss_hit():
-	health -= 1
-	print(health)
-	if health == 2:
-		health_two.emit()
-	elif health == 1:
-		health_one.emit()
-	elif health == 0:
-		dead.emit()
+	if chompp == 0:
+		health -= 1
+		print(health)
+		Globalvars.stage = 5
+		if health == 2:
+			health_two.emit()
+		elif health == 1:
+			health_one.emit()
+		elif health == 0:
+			dead.emit()
+			await get_tree().create_timer(2).timeout
+			get_tree().change_scene_to_file("res://WIN.tscn")
+	elif chompp == 1:
+		get_tree().change_scene_to_file("res://LOST.tscn")

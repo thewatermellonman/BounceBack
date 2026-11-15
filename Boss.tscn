@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="8_4xbeb"]
 [ext_resource type="Texture2D" uid="uid://xsmw4nx5ri0m" path="res://Slime King Weak.png" id="9_6a0v0"]
 [ext_resource type="Script" uid="uid://7fp1wftar23h" path="res://boss.gd" id="10_8x4hd"]
+[ext_resource type="Script" uid="uid://cf2ypitqpps44" path="res://bosssprite.gd" id="11_4xbeb"]
+[ext_resource type="Texture2D" uid="uid://buq01q23ffwhu" path="res://Heart Full.png" id="11_ic80l"]
+[ext_resource type="Script" uid="uid://bhei1jgvpf0ec" path="res://three.gd" id="12_8io2r"]
+[ext_resource type="Script" uid="uid://yi1y5wninnh6" path="res://two.gd" id="13_mucav"]
+[ext_resource type="Script" uid="uid://cl0q7kbabux72" path="res://one.gd" id="14_4xbeb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uy2a"]
 size = Vector2(56, 166.625)
@@ -137,12 +142,36 @@ script = ExtResource("10_8x4hd")
 [node name="Sprite2D" type="Sprite2D" parent="Stage 1/Boss" unique_id=178159876]
 position = Vector2(896, 493)
 texture = ExtResource("9_6a0v0")
+script = ExtResource("11_4xbeb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage 1/Boss" unique_id=1929041087]
 position = Vector2(891, 474)
 shape = SubResource("CircleShape2D_afka0")
 
+[node name="Health" type="Area2D" parent="Stage 1" unique_id=715096777]
+
+[node name="three" type="Sprite2D" parent="Stage 1/Health" unique_id=976669259]
+position = Vector2(212, 59)
+texture = ExtResource("11_ic80l")
+script = ExtResource("12_8io2r")
+
+[node name="two" type="Sprite2D" parent="Stage 1/Health" unique_id=527583183]
+position = Vector2(131, 59)
+texture = ExtResource("11_ic80l")
+script = ExtResource("13_mucav")
+
+[node name="one" type="Sprite2D" parent="Stage 1/Health" unique_id=920647396]
+position = Vector2(55, 59)
+texture = ExtResource("11_ic80l")
+script = ExtResource("14_4xbeb")
+
+[connection signal="dead" from="Stage 1/Player" to="Stage 1/Boss/Sprite2D" method="_on_player_dead"]
+[connection signal="dead" from="Stage 1/Player" to="Stage 1/Health/one" method="_on_player_dead"]
+[connection signal="health_one" from="Stage 1/Player" to="Stage 1/Health/two" method="_on_player_health_one"]
+[connection signal="health_two" from="Stage 1/Player" to="Stage 1/Health/three" method="_on_player_health_two"]
 [connection signal="area_entered" from="Stage 1/Player/PickupArea" to="Stage 1/Player" method="_on_pickuparea_area_entered"]
 [connection signal="area_entered" from="Stage 1/Player/PickupArea" to="Stage 1/Player" method="_on_pickup_area_area_entered"]
 [connection signal="body_entered" from="Stage 1/Boss" to="Stage 1/Boss" method="_on_body_entered"]
 [connection signal="boss_hit" from="Stage 1/Boss" to="Stage 1/Player" method="_on_boss_hit"]
+[connection signal="chomp" from="Stage 1/Boss/Sprite2D" to="Stage 1/Player" method="_on_sprite_2d_chomp"]
+[connection signal="no_chomp" from="Stage 1/Boss/Sprite2D" to="Stage 1/Player" method="_on_sprite_2d_no_chomp"]
