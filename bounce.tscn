@@ -1,18 +1,60 @@
 [gd_scene format=3 uid="uid://cvsfbruifc585"]
 
+[ext_resource type="Texture2D" uid="uid://dy03txws1hglj" path="res://Background Sky.png" id="1_6802c"]
 [ext_resource type="Script" uid="uid://noq5t8tr68t5" path="res://character_body_2d.gd" id="1_ug7ek"]
+[ext_resource type="Texture2D" uid="uid://b6agwk6f2n4y3" path="res://Background Tower.png" id="2_rf0v1"]
 [ext_resource type="Texture2D" uid="uid://bsb1ohfsfwmj1" path="res://Princess True.png" id="2_uo8sn"]
 [ext_resource type="PackedScene" uid="uid://hnycn531yv7k" path="res://colorslime.tscn" id="3_ug7ek"]
+[ext_resource type="Texture2D" uid="uid://bk7vs5sv5r655" path="res://Background Cluods.png" id="3_ylgda"]
 [ext_resource type="Texture2D" uid="uid://kjgs31cha1rr" path="res://Ground Top.png" id="4_7f2o3"]
 [ext_resource type="Texture2D" uid="uid://trvl0wkwb3kw" path="res://Ground Corner.png" id="5_uo8sn"]
+[ext_resource type="Texture2D" uid="uid://bwlir6wo4g65" path="res://blu.jpg" id="6_rxh2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws73l"]
+size = Vector2(123, 164.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afka0"]
 size = Vector2(82, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtbxn"]
+size = Vector2(1177.5, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60ojf"]
+size = Vector2(748, 88.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nl4k"]
 size = Vector2(20, 839)
 
 [node name="Node2D" type="Node2D" unique_id=859023814]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=634321090]
+position = Vector2(573.5, 296)
+scale = Vector2(1.4412501, 1.05)
+texture = ExtResource("1_6802c")
+
+[node name="Tower" type="Sprite2D" parent="." unique_id=891981505]
+position = Vector2(437.99997, 321)
+scale = Vector2(1.0375, 1.0535715)
+texture = ExtResource("2_rf0v1")
+
+[node name="Clouds" type="Sprite2D" parent="." unique_id=2030073492]
+position = Vector2(293, 578)
+texture = ExtResource("3_ylgda")
+
+[node name="Clouds2" type="Sprite2D" parent="." unique_id=778663611]
+position = Vector2(790, 232)
+texture = ExtResource("3_ylgda")
+
+[node name="Bouncepad" type="Area2D" parent="." unique_id=769174331 groups=["bounce"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Bouncepad" unique_id=965172895 groups=["bounce"]]
+position = Vector2(763, 588)
+scale = Vector2(0.24899994, 0.09799996)
+texture = ExtResource("6_rxh2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bouncepad" unique_id=1964256182]
+position = Vector2(762.5, 645.25)
+shape = SubResource("RectangleShape2D_ws73l")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=862969182]
 position = Vector2(71, 455)
@@ -58,7 +100,7 @@ position = Vector2(50, 219)
 position = Vector2(524, 224)
 
 [node name="PinkSlime6" parent="." unique_id=2005720812 instance=ExtResource("3_ug7ek")]
-position = Vector2(826, 560)
+position = Vector2(887, 562)
 
 [node name="PinkSlime7" parent="." unique_id=2110225019 instance=ExtResource("3_ug7ek")]
 position = Vector2(995, 561)
@@ -81,6 +123,10 @@ patch_margin_top = 41
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=418365134]
+position = Vector2(565.25, 628)
+shape = SubResource("RectangleShape2D_gtbxn")
+
 [node name="Ground2" type="StaticBody2D" parent="." unique_id=1117009121]
 
 [node name="TextureRect" type="NinePatchRect" parent="Ground2" unique_id=2099961970]
@@ -92,6 +138,10 @@ texture = ExtResource("4_7f2o3")
 patch_margin_top = 41
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=18462618]
+position = Vector2(307, 285.75)
+shape = SubResource("RectangleShape2D_60ojf")
 
 [node name="Ground3" type="StaticBody2D" parent="." unique_id=1621455836]
 
@@ -134,3 +184,4 @@ one_way_collision_direction = Vector2(1, 0)
 debug_color = Color(0.8392157, 0, 0.92941177, 0.9254902)
 
 [connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickuparea_area_entered"]
+[connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickup_area_area_entered"]
