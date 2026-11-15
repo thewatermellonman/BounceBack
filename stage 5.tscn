@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://ctj24vgj1uidt"]
+
+[ext_resource type="Texture2D" uid="uid://dy03txws1hglj" path="res://Background Sky.png" id="1_011lb"]
+[ext_resource type="Script" uid="uid://noq5t8tr68t5" path="res://character_body_2d.gd" id="1_atqu8"]
+[ext_resource type="Script" uid="uid://da8an8vucbn2t" path="res://stage_5.gd" id="1_pqe75"]
+[ext_resource type="Texture2D" uid="uid://bk7vs5sv5r655" path="res://Background Cluods.png" id="2_1f8lo"]
+[ext_resource type="Texture2D" uid="uid://bsb1ohfsfwmj1" path="res://Princess True.png" id="2_pqe75"]
+[ext_resource type="FontFile" uid="uid://c48l6ceu1k3tf" path="res://ByteBounce.ttf" id="3_atqu8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpabw"]
+size = Vector2(82, 170)
+
+[node name="Node2D" type="Node2D" unique_id=751812539]
+script = ExtResource("1_pqe75")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=462266039]
+position = Vector2(71, 455)
+script = ExtResource("1_atqu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1980189337]
+position = Vector2(8, -381)
+scale = Vector2(0.51037997, 0.53538764)
+texture = ExtResource("2_pqe75")
+
+[node name="PickupArea" type="Area2D" parent="Player" unique_id=1018695597]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PickupArea" unique_id=554973158]
+position = Vector2(9, -361)
+shape = SubResource("RectangleShape2D_mpabw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=870483677]
+position = Vector2(7, -362)
+shape = SubResource("RectangleShape2D_mpabw")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1270149325]
+position = Vector2(573.5, 350.50003)
+scale = Vector2(1.4412501, 1.244643)
+texture = ExtResource("1_011lb")
+
+[node name="Clouds" type="Sprite2D" parent="." unique_id=1937991600]
+position = Vector2(789, 263)
+texture = ExtResource("2_1f8lo")
+
+[node name="Clouds2" type="Sprite2D" parent="." unique_id=1697816742]
+position = Vector2(322, 599)
+texture = ExtResource("2_1f8lo")
+
+[node name="Clouds3" type="Sprite2D" parent="." unique_id=401522382]
+position = Vector2(-56, 16)
+texture = ExtResource("2_1f8lo")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1019921140]
+offset_left = 59.0
+offset_top = 51.0
+offset_right = 856.0
+offset_bottom = 490.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_atqu8")
+theme_override_font_sizes/normal_font_size = 87
+text = "As the princess went along, catching slimes, she started to notice that they were all coming from the same direction."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1750879913]
+offset_left = 63.0
+offset_top = 45.0
+offset_right = 860.0
+offset_bottom = 484.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_atqu8")
+theme_override_font_sizes/normal_font_size = 87
+text = "As the princess went along, catching slimes, she started to notice that they were all coming from the same direction."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=464474765]
+offset_left = 796.0
+offset_top = 521.0
+offset_right = 1593.0
+offset_bottom = 960.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_atqu8")
+theme_override_font_sizes/normal_font_size = 57
+text = "Space to cont."
+
+[connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickuparea_area_entered"]
+[connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickup_area_area_entered"]
